@@ -8,7 +8,7 @@ class DalAgent:
 
     def add_agent(self,agent: Agent):
         query = """
-        INSERT INTO agents (codeName, realName, location, status, missionComplete)
+        INSERT INTO agents (codeName, realName, location, status, missionsCompleted)
         VALUES (%s, %s, %s, %s, %s)
         """
         params = (agent.code_name, agent.real_name, agent.location, agent.status, agent.missions_completed)
@@ -62,4 +62,4 @@ class DalAgent:
         SET {set_clause}
         WHERE id=%s
         """
-        return self.dal.delete(query, params)
+        return self.dal.update(query, params)
