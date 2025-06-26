@@ -10,5 +10,5 @@ class Agent:
 
     def __str__(self):
         return (f"\nID: {self.id}, \nCode Name: {self.code_name}, \nReal Name: {self.real_name}, "
-                f"Location: {self.location}, \nStatus: {self.status}, \nMissions Completed: {self.missions_completed}")
+                f"\nLocation: {self.location}, \nStatus: {self.status}, \nMissions Completed: {self.missions_completed}")
 
