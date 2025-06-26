@@ -1,6 +1,4 @@
 from webbrowser import Error
-
-import mysql
 from dal.MySqlConnection import MySQLConnection
 
 
