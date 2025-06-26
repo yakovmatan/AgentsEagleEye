@@ -45,6 +45,11 @@ class Manager:
         print("=== Update Agent ===")
         agent_id = Manager.input_int("Enter the ID of the agent to update: ")
 
+        agent = self.manager.get_agent_by_id(agent_id)
+        if not agent:
+            print(f"No agent found with ID {agent_id}.")
+            return
+
         fields_to_update = {}
 
         print("\nLeave empty to skip updating a field.\n")
@@ -65,19 +70,23 @@ class Manager:
         if status:
             fields_to_update["status"] = status
 
-        missions_completed = Manager.input_int("New missions completed (leave empty to skip): ")
-        if missions_completed:
-            fields_to_update["missionsCompleted"] = missions_completed
+        missions_to_add = input("How many missions to add? (leave empty to skip): ")
+        if missions_to_add.strip() != "":
+            if missions_to_add.isdigit():
+                total_missions = agent.missions_completed + int(missions_to_add)
+                fields_to_update["missionsCompleted"] = total_missions
+            else:
+                print("Invalid number, skipping missions update.")
 
         if not fields_to_update:
-            print("No fields selected for update.")
-            return
+                print("No fields selected for update.")
+                return
 
         updated_rows = self.manager.update_agent(agent_id, fields_to_update)
         if updated_rows:
             print(f"Agent {agent_id} updated successfully.")
         else:
-            print("Update failed or no rows affected.")
+            print(f"Update failed for agent {agent_id}.")
 
     def delete_agent_flow(self):
         agent_id = Manager.input_int("Enter agent ID to delete: ")

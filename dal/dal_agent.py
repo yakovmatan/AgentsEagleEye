@@ -62,4 +62,4 @@ class DalAgent:
         SET {set_clause}
         WHERE id=%s
         """
-        return self.dal.delete(query, params)
+        return self.dal.update(query, params)

@@ -25,6 +25,7 @@ def menu():
             manager.list_all_agents_flow()
         elif choice == "6":
             print("Existing...")
+            break
         else:
             print("Invalid choice, please try again.")
 
