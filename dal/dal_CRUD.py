@@ -6,7 +6,7 @@ class DalCrud:
 
     def __init__(self,host, user, password, database):
         self.db_config = {
-            "hose": host,
+            "host": host,
             "user": user,
             "password": password,
             "database": database

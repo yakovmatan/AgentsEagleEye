@@ -91,12 +91,12 @@ class Manager:
         agent_id = Manager.input_int("Enter agent ID to fetch: ")
         agent = self.manager.get_agent_by_id(agent_id)
         if agent:
-            print(f"ID: {agent.id}")
-            print(f"Code Name: {agent.codeName}")
-            print(f"Real Name: {agent.realName}")
+            print(f"ID: {agent.agent_id}")
+            print(f"Code Name: {agent.code_name}")
+            print(f"Real Name: {agent.real_name}")
             print(f"Location: {agent.location}")
             print(f"Status: {agent.status}")
-            print(f"Missions Completed: {agent.missionsCompleted}")
+            print(f"Missions Completed: {agent.missions_completed}")
         else:
             print("Agent not found.")
 
@@ -107,4 +107,4 @@ class Manager:
         else:
             for a in agents:
                 print(
-                    f"{a.agent_id}: {a.code_name} ({a.real_name}), {a.status} at {a.location}, Missions: {a.missionsCompleted}")
+                    f"{a.agent_id}: {a.code_name} ({a.real_name}), {a.status} at {a.location}, Missions: {a.missions_completed}")
